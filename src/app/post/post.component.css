@@ -1,0 +1,13 @@
+.avatar {
+    width: 50px;
+    height: 51px;
+    border-radius: 100%;
+    background: url(../../assets/images/avatar1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.comentario {
+    border-left: 3px solid #FF9B52;
+    padding-left: 25px;
+}
