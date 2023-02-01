@@ -6,12 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostComponent } from './post/post.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
