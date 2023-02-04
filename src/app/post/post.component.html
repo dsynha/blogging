@@ -1,25 +1,65 @@
-<div class="container">
-    <h1>Estratégias em um novo paradigma globalizado</h1>
-    <span>Sobre o cuidado em identificar pontos críticos na complexidade</span>
-    <div class="d-flex flex-row">
-        <div class="avatar"></div>
+<div class="container mx-auto mb-5" id="post">
+    <h1 class="titulo">{{ selectedPost ? selectedPost.title  : "" }}</h1>
+    <span class="subtitulo">{{ selectedPost.subtitle }}</span>
+    <div class="d-flex flex-row align-items-center" id="autor">
+        <div class="avatar" (click)="openVerticallyCentered(longContent)"></div>
         <div class="d-flex flex-column">
-            <span>João Figueiredo</span>
-            <span>20 de fev, 2019</span>
+            <span id="user" (click)="openVerticallyCentered(longContent)">{{ user.username }}</span>
+            <span id="date">20 de fev, 2019</span>
         </div>
     </div>
-    <div>
-        <p>Caros amigos, a mobilidade dos capitais internacionais desafia a capacidade de equalização das diversas correntes de pensamento. Nunca é demais lembrar o peso e o significado destes problemas, uma vez que a necessidade de renovação processual ainda não demonstrou convincentemente que vai participar na mudança das diretrizes de desenvolvimento para o futuro. O cuidado em identificar pontos críticos na complexidade dos estudos efetuados é uma das consequências das direções preferenciais no sentido do progresso. Do mesmo modo, a adoção de políticas descentralizadoras não pode mais se dissociar dos modos de operação convencionais.</p>
-        <p>Acima de tudo, é fundamental ressaltar que o novo modelo estrutural aqui preconizado cumpre um papel essencial na formulação das novas proposições. A nível organizacional, o desenvolvimento contínuo de distintas formas de atuação oferece uma interessante oportunidade para verificação dos conhecimentos estratégicos para atingir a excelência. Por outro lado, a constante divulgação das informações exige a precisão e a definição do sistema de formação de quadros que corresponde às necessidades. É claro que a contínua expansão de nossa atividade estimula a padronização das condições inegavelmente apropriadas.</p>
+    <div [innerHTML]="selectedPost.content">
     </div>
-    <div>
-        <h3>Comentários</h3>
-        <div class="comentario">
-            <span>Joana Vasconcellos - 20 fev 2019, às 17h30</span>
-            <p>O empenho em analisar a consolidação das estruturas oferece uma interessante oportunidade para verificação do retorno esperado a longo prazo. Por outro lado, o julgamento imparcial das eventualidades facilita a criação dos modos de operação convencionais.</p>
-            <a href="">Responder</a>
-            <a href="">Denunciar</a>
+    <div class="mt-4 mb-4">
+        <h4 id="comentarios">Comentários</h4>
+        <div class="comentario mt-3 mb-3" *ngFor="let comment of rawPost.comments">
+            <app-comments [comment]="comment"></app-comments>
         </div>
     </div>
-    <app-modal></app-modal>
 </div>
+
+<ng-template #longContent let-modal>
+    <div id="modal">
+        <div class="modal-header">
+            <h4 class="modal-title">Dados do usuário</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div id="profile">
+                <div class="d-flex flex-row align-items-center mt-2 mb-4">
+                    <div class="avatar" id="photo"></div>
+                    <span class="username">{{ user.username }}</span>
+                </div>
+                <div class="d-flex flex-row align-items-center mt-4 mb-4">
+                    <span>Amigos em comum:</span>
+                    <div class="avatar"></div>
+                    <div class="avatar"></div>
+                    <div class="avatar"></div>
+                </div>
+                <div>
+                    <h5>Histórico de postagens</h5>
+                    <div class="d-flex flex-column mt-4 mb-4" *ngFor="let post of user.posts">
+                        <span>{{ post.title }}</span>
+                        <span>{{ post.subtitle }}</span>
+                        <span>{{ post.content }}</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <button><span class="material-symbols-outlined">person_add</span> Adicionar usuário </button>
+                    <button><span class="material-symbols-outlined">person_remove</span> Remover usuário</button>
+                    <button><span class="material-symbols-outlined">chat</span> Enviar mensagem</button>
+                    <button><span class="material-symbols-outlined">report</span> Reportar usuário</button>
+                </div>
+            </div>
+            
+            <!-- - Nome e foto do usuário
+            - Data de filiação ao Blogging
+            - Os amigos em comum com o usuário logado atualmente
+            - Informações básicas sobre todos os posts realizados por este usuário: título, subtítulo e parte do conteúdo do post
+            - Botões para adicionar ou remover o usuário da lista de amigos; botão de enviar mensagem ao usuário; botão para reportar o usuário -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </div>
+</ng-template>

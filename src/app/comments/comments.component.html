@@ -1,0 +1,18 @@
+<div class="comentario">
+    <span>{{ comment.author.username}} - {{ comment.author.timestamp }}</span>
+    <p>{{ comment.content }}</p>
+    <button (click)="sendAnswer()">Responder</button>
+    <button>Compartilhar</button>
+    <button>Reportar</button>
+    <div *ngIf="answers.length" class="respostas mt-3">
+        <h5>Respostas</h5>
+        <div *ngFor="let answer of answers">
+            <p>{{ answer }}</p>
+        </div>
+    </div>
+    <div *ngIf="showAnswerField" class="answer mt-4">
+        <h6>Insira sua resposta aqui:</h6>
+        <textarea #myAnswer (keyup)="keyup(myAnswer.value)"></textarea>
+    </div>
+</div>
+

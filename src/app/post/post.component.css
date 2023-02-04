@@ -1,13 +1,71 @@
+#post {
+    font-family: 'Roboto';
+}
+
+.titulo {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #000000;
+    margin-top: 55px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #939393;
+    margin-bottom: 20px;
+}
+
+#autor {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+#user {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+
+#date {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #8A8A8A;
+}
+
 .avatar {
     width: 50px;
-    height: 51px;
+    height: 50px;
     border-radius: 100%;
     background: url(../../assets/images/avatar1.jpg);
     background-size: cover;
     background-position: center;
+    margin-right: 10px;
 }
 
-.comentario {
-    border-left: 3px solid #FF9B52;
-    padding-left: 25px;
+#modal {
+    font-family: 'Roboto';
+}
+
+#photo {
+    width: 150px;
+    height: 150px;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
 }
